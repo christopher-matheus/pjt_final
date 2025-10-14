@@ -8,21 +8,21 @@ class Aluno:
 def nome(self):
     return self.__nome
 @nome.setter
-def nome(self, nome):
-    self.__nome = nome
+def nome(self, new_nome):
+    self.__nome = new_nome
 
 
 @property
 def id(self):
     return self.__id  
 @id.setter
-def set_id(self, id):
-    self.__id = id
+def set_id(self, new_id):
+    self.__id = new_id
 
 
 @property
 def rm(self):
     return self.__rm 
 @rm.setter
-def set_rm(self, rm):
-    self.__rm = rm 
+def set_rm(self, new_rm):
+    self.__rm = new_rm 

@@ -4,6 +4,7 @@ from core.aluno.aluno_controller import aluno_controller
 
 app = Flask(__name__)
 
+#registro do blueprint
 app.register_blueprint(aluno_controller)
 
 if __name__ == '__main__':

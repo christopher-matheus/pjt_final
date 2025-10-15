@@ -6,3 +6,6 @@ class AlunoService:
 
     def listar_alunos(self):
         return self.repository.listar()
+    
+    def adicionar_aluno(self, aluno):
+        pass

@@ -4,3 +4,6 @@ class AlunoRepository:
 
     def listar(self):
         pass
+    
+    def adicionar(self, aluno):
+        pass

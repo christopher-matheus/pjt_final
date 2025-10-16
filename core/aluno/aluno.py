@@ -1,8 +1,10 @@
 class Aluno:
-    def __init__(self, nome="", id=0, rm=0):
+    def __init__(self, nome="", id=0, rm=0, cpf="", idade=0):
         self.nome = nome
         self.id = id
         self.rm = rm
+        self.cpf = cpf
+        self.idade = idade
 
 @property
 def nome(self):

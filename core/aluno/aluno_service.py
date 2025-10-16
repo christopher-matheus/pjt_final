@@ -13,3 +13,17 @@ class AlunoService:
             return self.repository.adicionar(aluno)
         else:
             return None
+    def atualizar_aluno(self, aluno):
+        if isinstance(aluno, Aluno):
+            if aluno.id > 0:
+                return self.repository.atualizar(aluno)
+            else:
+                return "Id do aluno é obrigatório para a atualização"
+        else:
+            return None
+    def remover_aluno(self, aluno_id):
+        sucesso = self.repository.remover(aluno_id)
+        if not sucesso:
+            return None
+        else:
+            return {"id": aluno_id, "Aluno removido com sucesso": True}

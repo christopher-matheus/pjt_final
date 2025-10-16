@@ -26,3 +26,18 @@ def rm(self):
 @rm.setter
 def set_rm(self, new_rm):
     self.__rm = new_rm 
+    
+@property
+def cpf(self):
+    return self.__cpf 
+@cpf.setter
+def set_cpf(self, new_cpf):
+    self.__cpf = new_cpf
+
+
+@property
+def idade(self):
+    return self.__idade  
+@idade.setter
+def set_idade(self, new_idade):
+    self.__idade = new_idade

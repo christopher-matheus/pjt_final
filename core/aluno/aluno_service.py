@@ -27,3 +27,10 @@ class AlunoService:
             return None
         else:
             return {"id": aluno_id, "Aluno removido com sucesso": True}
+        
+    def obter_aluno_por_id(self, aluno_id):
+        aluno = self.repository.obter_por_id(aluno_id)
+        if not aluno:
+            return None
+        else:
+            return aluno

@@ -14,7 +14,7 @@ def listar_alunos():
 @aluno_controller.route('/', methods=['POST'])
 def adicionar_aluno():
     dados = request.get_json()
-    obj_aluno = Aluno(id=0, nome=dados['nome'], rm=dados['rm'], cpf=dados['cpf'], idade=dados['idade'])
+    obj_aluno = Aluno(id=0, nome=dados['nome'], cpf=dados['cpf'], idade=dados['idade'])
     aluno = alunos_service.adicionar_aluno(obj_aluno)
     return jsonify(aluno), 201
 

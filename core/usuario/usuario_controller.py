@@ -1,45 +1,45 @@
 from flask import Blueprint, request, jsonify
-from core.usuario.usuario import Usuario
 from core.usuario.usuario_service import UsuarioService
+from core.usuario.usuario import Usuario
 
-usuario_controller = Blueprint('usuario', __name__, url_prefix='/usuarios')
+service = UsuarioService()
 
-usuarios_service = UsuarioService()
+controller = Blueprint('usuario', __name__, url_prefix='/usuarios')
 
-@usuario_controller.route('/', methods=['GET'])
-def listar_usuarios():
-    usuarios = usuarios_service.listar_usuarios()
-    return jsonify(usuarios)
+@controller.route('/', methods=['GET'])
+def listar():
+    objeto = service.listar_usuarios()
+    return jsonify(objeto)
 
-@usuario_controller.route('/', methods=['POST'])
-def adicionar_usuario():
+@controller.route('/', methods=['POST'])
+def adicionar():
     dados = request.get_json()
-    obj_usuario = usuario(id=0, nome=dados['nome'], cpf=dados['cpf'], idade=dados['idade'])
-    usuario = usuarios_service.adicionar_usuario(obj_usuario)
-    return jsonify(usuario), 201
+    obj = Usuario(id=0, usuario=dados["usuario"],
+                      senha=dados["senha"],
+                      ativo=dados["ativo"])
+    objeto = service.adicionar_usuario(obj)
+    return jsonify(objeto), 201
 
-@usuario_controller.route('/<int:usuario_id>', methods=['GET'])
-def obter_usuario(id):
-    usuario = usuarios_service.obter_usuario_por_id(id)
-    if usuario:
-        return jsonify(usuario)
+@controller.route('/<int:id>', methods=['GET'])
+def obter(id):
+    objeto = service.obter_usuario_por_id(id)
+    if objeto:
+        return jsonify(objeto)
     else:
-        return jsonify({"error": "usuario não encontrado"}), 404
+        return jsonify({"erro": "Usuario não encontrado"}), 404
 
-@usuario_controller.route('/<int:usuario_id>', methods=['DELETE'])
-def remover_usuario(usuario_id):
-    sucesso = usuarios_service.remover_usuario(usuario_id)
-    if sucesso:
-        return jsonify(sucesso), 200
-    else:
-        return jsonify({"error": "usuario não encontrado"}), 404
-    
-@usuario_controller.route('/', methods=['PUT'])
-def atualizar_usuario():
+@controller.route('/<int:id>', methods=['DELETE'])    
+def remover(id):
+    sucesso = service.remover_usuario(id)
+    return jsonify(sucesso)
+
+@controller.route('/', methods=['PUT'])
+def atualizar():
     dados = request.get_json()
-    obj_usuario = usuario(id=dados['id'], nome=dados['nome'], rm=dados['rm'], cpf=dados['cpf'], idade=dados['idade'])
-    usuario = usuarios_service.atualizar_usuario(obj_usuario)
-    if usuario:
-        return jsonify(usuario)
+    obj = Usuario(id=dados["id"], usuario=dados["usuario"],
+                      senha=dados["senha"], ativo=dados["ativo"])
+    objeto = service.atualizar_usuario(obj)
+    if objeto:
+        return jsonify(objeto)
     else:
-        return jsonify({"error": "usuario não encontrado"}), 404
+        return jsonify({"erro": "Usuario não encontrado"}), 404

@@ -1,16 +1,16 @@
 class Usuario:
-    def __init__(self, nome, id, ativo, senha):
-        self.nome = nome
+    def __init__(self, usuario, id, ativo, senha):
+        self.usuario = usuario
         self.id = id
         self.senha = senha
         self.ativo = ativo
 
     @property
-    def nome(self):
-        return self._nome
-    @nome.setter
-    def nome(self, n_nome):
-        self._nome = n_nome
+    def usuario(self):
+        return self._usuario
+    @usuario.setter
+    def usuario(self, n_usuario):
+        self._usuario = n_usuario
 
 
     @property

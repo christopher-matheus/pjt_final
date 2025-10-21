@@ -1,16 +1,34 @@
 class Professor:
-    def __init__(self, nome, id, disciplina):
+    def __init__(self, nome, id, formacao, cpf, idade):
         self.nome = nome
         self.id = id
-        self.disciplina = disciplina
+        self.idade = idade
+        self.cpf = cpf
+        self.formacao = formacao
 
 
     @property
-    def usuario(self):
-        return self._usuario
-    @usuario.setter
-    def usuario(self, n_usuario):
-        self._usuario = n_usuario
+    def nome(self):
+        return self._nome
+    @nome.setter
+    def nome(self, n_nome):
+        self._nome = n_nome
+    
+    
+    @property
+    def idade(self):
+        return self._idade
+    @idade.setter
+    def idade(self, n_idade):
+        self._idade = n_idade
+
+
+    @property
+    def cpf(self):
+        return self._cpf
+    @cpf.setter
+    def cpf(self, n_cpf):
+        self._cpf = n_cpf
 
 
     @property
@@ -22,8 +40,8 @@ class Professor:
 
 
     @property
-    def disciplina(self):
-        return self._disciplina 
-    @disciplina.setter
-    def disciplina(self, n_disciplina):
-        self._disciplina = n_disciplina
+    def formacao(self):
+        return self._formacao 
+    @formacao.setter
+    def formacao(self, n_formacao):
+        self._formacao = n_formacao

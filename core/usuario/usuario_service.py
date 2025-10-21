@@ -1,7 +1,9 @@
+from core.usuario.usuario_repository import UsuarioRepository
+from core.usuario.usuario import Usuario
 class UsuarioService:
 
     def __init__(self):
-        self.repository = UsuarioService()
+        self.repository = UsuarioRepository()
 
     def listar_usuarios(self):
         return self.repository.listar()

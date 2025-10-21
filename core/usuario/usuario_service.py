@@ -28,8 +28,8 @@ class UsuarioService:
         else:
             return {"id": usuario_id, "usuario removido com sucesso": True}
         
-    def obter_usuario_por_id(self, usuario_id):
-        usuario = self.repository.obter_por_id(usuario_id)
+    def obter_usuario_por_usuario_e_senha(self, usuario, senha):
+        usuario = self.repository.obter_por_id(usuario, senha)
         if not usuario:
             return None
         else:

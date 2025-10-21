@@ -1,17 +1,20 @@
 from flask import Blueprint, request, jsonify
 from core.aluno.aluno import Aluno
 from core.aluno.aluno_service import AlunoService
+from core.autenticação.aut import autenticacao
 
 aluno_controller = Blueprint('aluno', __name__, url_prefix='/alunos')
 
 alunos_service = AlunoService()
 
 @aluno_controller.route('/', methods=['GET'])
+@autenticacao
 def listar_alunos():
     alunos = alunos_service.listar_alunos()
     return jsonify(alunos)
 
 @aluno_controller.route('/', methods=['POST'])
+@autenticacao
 def adicionar_aluno():
     dados = request.get_json()
     obj_aluno = Aluno(id=0, nome=dados['nome'], cpf=dados['cpf'], idade=dados['idade'])
@@ -19,6 +22,7 @@ def adicionar_aluno():
     return jsonify(aluno), 201
 
 @aluno_controller.route('/<int:aluno_id>', methods=['GET'])
+@autenticacao
 def obter_aluno(id):
     aluno = alunos_service.obter_aluno_por_id(id)
     if aluno:
@@ -27,6 +31,7 @@ def obter_aluno(id):
         return jsonify({"error": "Aluno não encontrado"}), 404
 
 @aluno_controller.route('/<int:aluno_id>', methods=['DELETE'])
+@autenticacao
 def remover_aluno(aluno_id):
     sucesso = alunos_service.remover_aluno(aluno_id)
     if sucesso:
@@ -35,6 +40,7 @@ def remover_aluno(aluno_id):
         return jsonify({"error": "Aluno não encontrado"}), 404
     
 @aluno_controller.route('/', methods=['PUT'])
+@autenticacao
 def atualizar_aluno():
     dados = request.get_json()
     obj_aluno = Aluno(id=dados['id'], nome=dados['nome'], rm=dados['rm'], cpf=dados['cpf'], idade=dados['idade'])

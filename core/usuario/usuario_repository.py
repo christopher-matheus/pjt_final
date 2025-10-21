@@ -6,7 +6,7 @@ DB_NAME = "escola.db"
 class UsuarioRepository:
     def __init__(self, db_name=DB_NAME):
         self.db_name = db_name
-
+  
     def conectar(self):
         return sqlite3.connect(self.db_name)
 

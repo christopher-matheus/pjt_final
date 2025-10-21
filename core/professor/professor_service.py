@@ -28,8 +28,8 @@ class professorService:
         else:
             return {"id": professor_id, "professor removido com sucesso": True}
         
-    def obter_professor_por_professor_e_senha(self, professor, senha):
-        professor = self.repository.obter_por_id(professor, id)
+    def obter_professor_por_nome_e_id(self, nome, id):
+        professor = self.repository.obter_por_id(nome, id)
         if not professor:
             return None
         else:

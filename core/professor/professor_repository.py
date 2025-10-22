@@ -2,7 +2,7 @@ import sqlite3
 
 DB_NAME = "escola.db"
 
-# AlunoRepository: Responsável por acessar e manipular os dados da aplicação.
+# ProfessorRepository: Responsável por acessar e manipular os dados da aplicação.
 class ProfessorRepository:
     def __init__(self, db_name=DB_NAME):
         self.db_name = db_name
@@ -49,7 +49,7 @@ class ProfessorRepository:
             return None
 
         cursor.execute(
-            "UPDATE alunos SET nome = ?, idade = ?, cpf = ? WHERE id = ?;",
+            "UPDATE professores SET nome = ?, idade = ?, cpf = ? WHERE id = ?;",
             (obj_professor.nome, obj_professor.idade, obj_professor.formacao, obj_professor.id),
         )
         conn.commit()

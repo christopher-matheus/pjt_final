@@ -9,30 +9,30 @@ class Materia:
     def sg_crc(self):
         return self._sg_crc
     @sg_crc.setter
-    def sg_crc(self, n_sg_crc):
-        self._sg_crc = n_sg_crc
+    def sg_crc(self, new_sg_crc):
+        self._sg_crc = new_sg_crc
 
 
     @property
     def id(self):
         return self._id
     @id.setter
-    def id(self, n_id):
-        self._id = n_id
+    def id(self, new_id):
+        self._id = new_id
 
 
     @property
     def nome(self):
         return self._nome
     @nome.setter
-    def nome(self, n_nome):
-        self._nome = n_nome
+    def nome(self, new_nome):
+        self._nome = new_nome
 
-        
+
     @property
     def descricao(self):
         return self._descricao
     @descricao.setter
-    def descricao(self, n_descricao):
-        self._descricao = n_descricao
+    def descricao(self, new_descricao):
+        self._descricao = new_descricao
     

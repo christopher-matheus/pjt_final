@@ -1,5 +1,5 @@
-from core.materia.materia_repository import MateriaRepository
-from core.materia.materia import Materia
+from core.materias.materias_repository import MateriaRepository
+from core.materias.materia import Materia
 class MateriaService:
 
     def __init__(self):

@@ -28,7 +28,7 @@ def obter_materia(id):
     if materia:
         return jsonify(materia)
     else:
-        return jsonify({"error": "materia não encontrado"}), 404
+        return jsonify({"error": "materia não encontrada"}), 404
 
 @materia_controller.route('/<int:materia_id>', methods=['DELETE'])
 @autenticacao
@@ -37,7 +37,7 @@ def remover_materia(materia_id):
     if sucesso:
         return jsonify(sucesso), 200
     else:
-        return jsonify({"error": "materia não encontrado"}), 404
+        return jsonify({"error": "materia não encontrada"}), 404
     
 @materia_controller.route('/', methods=['PUT'])
 @autenticacao

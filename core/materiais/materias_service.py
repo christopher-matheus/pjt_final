@@ -18,7 +18,7 @@ class MateriaService:
             if materia.id > 0:
                 return self.repository.atualizar(materia)
             else:
-                return "Id do materia é obrigatório para a atualização"
+                return "Id da materia é obrigatório para a atualização"
         else:
             return None
     def remover_materia(self, materia_id):

@@ -41,10 +41,7 @@ def validar_idade(idade):
     return True if idade >= 0 and idade < 125 else False
 
 def validar_dados(cpf, nome, idade):
-    """
-    Valida os dados de um aluno ou professor.
-    Retorna um dicionário com os erros encontrados.
-    """
+
     erros = {}
 
     if not validar_nome(nome):

@@ -39,3 +39,21 @@ def validar_idade(idade):
     Retorna True se for válido, False caso contrário
     """
     return True if idade >= 0 and idade < 125 else False
+
+def validar_dados(cpf, nome, idade):
+    """
+    Valida os dados de um aluno ou professor.
+    Retorna um dicionário com os erros encontrados.
+    """
+    erros = {}
+
+    if not validar_nome(nome):
+        erros['nome'] = "Nome inválido. Deve ter entre 3 e 255 caracteres."
+
+    elif not validar_cpf(cpf):
+        erros['cpf'] = "CPF inválido."
+
+    if not validar_idade(idade):
+        erros['idade'] = "Idade inválida. Deve ser entre 0 e 125 anos."
+
+    return erros

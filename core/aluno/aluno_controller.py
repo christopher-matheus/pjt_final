@@ -19,7 +19,7 @@ def listar_alunos():
 def adicionar_aluno():
     dados = request.get_json()
 
-    result = validador_dados(dados['cpf'], dados['idade'], dados['nome'])
+    result = validar_dados(dados['cpf'], dados['idade'], dados['nome'])
     if result != True:
         return jsonify({"error": result}), 400
     obj_aluno = Aluno(id=0, nome=dados['nome'], cpf=dados['cpf'], idade=dados['idade'])

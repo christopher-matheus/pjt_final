@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
 from core.aluno.aluno import Aluno
-from core.validador.validador import validador_dados
+from core.validador.validador import validar_dados
 from core.aluno.aluno_service import AlunoService
 from core.autenticação.aut import autenticacao
 
